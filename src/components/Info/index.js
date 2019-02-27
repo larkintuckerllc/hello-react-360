@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
-import { AppRegistry } from 'react-360';
 import InfoView from './InfoView';
 
-class Info extends PureComponent {
+export default class Info extends PureComponent {
   static propTypes = {
     name: PropTypes.string.isRequired,
   };
@@ -28,5 +27,3 @@ class Info extends PureComponent {
     this.setState(({ open }) => ({ open: !open }));
   };
 }
-
-AppRegistry.registerComponent('Info', () => Info);
