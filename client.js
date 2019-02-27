@@ -1,6 +1,9 @@
 import { ReactInstance, Surface } from 'react-360-web';
 
 function init(bundle, parent, options = {}) {
+
+  const SIZE = 300;
+
   const r360 = new ReactInstance(bundle, parent, {
     fullScreen: true,
     ...options,
@@ -8,8 +11,8 @@ function init(bundle, parent, options = {}) {
 
   // SPHERE
   const sphereSurface = new Surface(
-    100,
-    100,
+    SIZE,
+    SIZE,
     Surface.SurfaceShape.Flat,
   );
   sphereSurface.setAngle(0, 0);
@@ -20,8 +23,8 @@ function init(bundle, parent, options = {}) {
 
   // CAPSULE
   const capsuleSurface = new Surface(
-    100,
-    100,
+    SIZE,
+    SIZE,
     Surface.SurfaceShape.Flat,
   );
   capsuleSurface.setAngle(Math.PI / 2, 0);
@@ -32,8 +35,8 @@ function init(bundle, parent, options = {}) {
 
   // CYLINDER
   const cylinderSurface = new Surface(
-    100,
-    100,
+    SIZE,
+    SIZE,
     Surface.SurfaceShape.Flat,
   );
   cylinderSurface.setAngle(Math.PI, 0);
@@ -44,8 +47,8 @@ function init(bundle, parent, options = {}) {
 
   // CUBE
   const cubeSurface = new Surface(
-    100,
-    100,
+    SIZE,
+    SIZE,
     Surface.SurfaceShape.Flat,
   );
   cubeSurface.setAngle(-1 * Math.PI / 2, 0);

@@ -1,24 +1,32 @@
+import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  View,
-} from 'react-360';
+import { AppRegistry } from 'react-360';
+import InfoView from './InfoView';
 
 class Info extends PureComponent {
+  static propTypes = {
+    name: PropTypes.string.isRequired,
+  };
+
+  state = {
+    open: false,
+  };
+
   render() {
-    return(
-      <View style={styles.root} />
+    const { name } = this.props
+    const { open } = this.state;
+    return (
+      <InfoView
+        name={name}
+        open={open}
+        onClick={this.handleClick}
+      />
     );
   }
-}
 
-const styles = StyleSheet.create({
-  root: {
-    width: 100,
-    height: 100,
-    backgroundColor: 'rgb(255, 0, 0)',
-  }
-});
+  handleClick = () => {
+    this.setState(({ open }) => ({ open: !open }));
+  };
+}
 
 AppRegistry.registerComponent('Info', () => Info);
