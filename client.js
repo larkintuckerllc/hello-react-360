@@ -57,9 +57,9 @@ function init(bundle, parent, options = {}) {
     cubeSurface,
   );
 
-  // PONY
+  // 3D SPHERE
   r360.renderToLocation(
-    r360.createRoot('Pony'),
+    r360.createRoot('Sphere'),
     r360.getDefaultLocation(),
   );
 
