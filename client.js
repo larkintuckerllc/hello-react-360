@@ -57,6 +57,12 @@ function init(bundle, parent, options = {}) {
     cubeSurface,
   );
 
+  // PONY
+  r360.renderToLocation(
+    r360.createRoot('Pony'),
+    r360.getDefaultLocation(),
+  );
+
   r360.compositor.setBackground(r360.getAssetURL('3d_scene.jpg'));
 }
 
