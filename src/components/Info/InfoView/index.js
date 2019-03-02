@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { Component } from 'react';
 import {
   Text,
   View,
@@ -7,28 +7,31 @@ import {
 } from 'react-360';
 import styles from './styles';
 
-const InfoView = ({ name, onClick, open }) => (
-  <View style={styles.root}>
-    <Text style={[
-      styles.rootText,
-      { opacity: open ? 1 : 0 }
-    ]}>
-      {name}
-    </Text>
-    <VrButton
-      style={[
-        styles.rootButton,
-        { backgroundColor: open ? 'red': 'green' },
-      ]}
-      onClick={onClick}
-    />
-  </View>
-);
+export default class InfoView extends Component { 
+  static propTypes = {
+    name: PropTypes.string.isRequired,
+    onClick: PropTypes.func.isRequired,
+    open: PropTypes.bool.isRequired,
+  };
 
-InfoView.propTypes = {
-  name: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
-  open: PropTypes.bool.isRequired,
-};
-
-export default InfoView;
+  render() {
+    const { name, onClick, open } = this.props;
+    return (
+      <View style={styles.root}>
+      <Text style={[
+        styles.rootText,
+        { opacity: open ? 1 : 0 }
+      ]}>
+        {name}
+      </Text>
+      <VrButton
+        style={[
+          styles.rootButton,
+          { backgroundColor: open ? 'red': 'green' },
+        ]}
+        onClick={onClick}
+      />
+    </View>
+    );
+  }
+}
