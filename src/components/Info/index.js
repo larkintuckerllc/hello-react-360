@@ -1,6 +1,9 @@
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 import InfoView from './InfoView';
+import { asset, NativeModules } from 'react-360';
+
+const { AudioModule } = NativeModules;
 
 export default class Info extends PureComponent {
   static propTypes = {
@@ -25,5 +28,8 @@ export default class Info extends PureComponent {
 
   handleClick = () => {
     this.setState(({ open }) => ({ open: !open }));
+    AudioModule.playOneShot({
+      source: asset('ray-gun.wav'),
+    });
   };
 }
