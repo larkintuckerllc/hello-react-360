@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 import InfoView from './InfoView';
 import { asset, NativeModules } from 'react-360';
+import { rotate } from '../../rotate';
 
 const { AudioModule } = NativeModules;
 
@@ -31,5 +32,6 @@ export default class Info extends PureComponent {
     AudioModule.playOneShot({
       source: asset('ray-gun.wav'),
     });
+    rotate();
   };
 }
